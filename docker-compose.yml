@@ -25,6 +25,8 @@ services:
     restart: always
     volumes:
       - ./inbound.conf:/etc/nginx/conf.d/default.conf:ro
+    extra_hosts:
+      - host.docker.internal:0.0.0.0 # Removes auto addition for Docker Desktop
   ollama-access-proxy:
     container_name: ollama-access-proxy
     image: nginx:stable-alpine
@@ -36,6 +38,8 @@ services:
     restart: always
     volumes:
       - ./ollama-access.conf:/etc/nginx/conf.d/default.conf:ro
+    extra_hosts:
+      - host.docker.internal:host-gateway # Adds for Docker linux
   openwebui:
     container_name: openwebui
     image: ghcr.io/open-webui/open-webui:main

@@ -22,7 +22,7 @@ services:
   nginx:
     container_name: nginx
     image: nginx:stable-alpine
-    mem_limit: 500mb
+    mem_limit: 512mb
     networks:
       services:
         ipv4_address: 10.0.1.2
@@ -38,7 +38,7 @@ services:
   ollama-access-proxy:
     container_name: ollama-access-proxy
     image: nginx:stable-alpine
-    mem_limit: 500mb
+    mem_limit: 512mb
     networks:
       services:
         ipv4_address: 10.0.1.254
@@ -72,7 +72,7 @@ services:
     restart: unless-stopped
     env_file:
       - ../secrets/.env
-    mem_limit: 500mb
+    mem_limit: 512mb
     extra_hosts:
       - host.docker.internal:0.0.0.0 # Removes auto addition for Docker Desktop
     # secrets:

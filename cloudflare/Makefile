@@ -2,9 +2,13 @@
 # Builds infrastructure in Cloudflare using OpenTofu
 
 # Default target
-all:
+all: build export
+
+build:
 	tofu init
 	tofu apply
+
+export:
 	@echo "TUNNEL_TOKEN=$(shell tofu output -raw cf_tunnel_token)" > ../secrets/.env
 
 # Clean built artifacts

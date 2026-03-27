@@ -58,7 +58,7 @@ services:
     volumes:
       - open-webui:/app/backend/data
     environment:
-      WEBUI_URL: http://localhost:80
+      WEBUI_URL: http://chat.internal
       OLLAMA_BASE_URL: http://ollama-access-proxy:11434
     restart: always
     mem_limit: 2gb
